@@ -112,3 +112,60 @@
 	<iostream>
 	"graph.h"
 
+1522848024 source:c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522848024 c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522849613 source:c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522848024 c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522848024 c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522848024 c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522848024 source:c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522852427 source:c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+
+1522852406 c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\graph.h
+	<fstream>
+	<vector>
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522850959 source:c:\users\guillaume\documents\ing 2\git hub repository\projet-piscine-ing2\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+

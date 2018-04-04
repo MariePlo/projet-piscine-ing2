@@ -2,7 +2,7 @@
 #include <iostream>
 #include "graph.h"
 
-int main()
+  int main()
 {
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
@@ -16,7 +16,10 @@ int main()
     g.lecture_fichier_chaine("chaine_afrique.txt", animal);
     g.lecture_fichier_matrice("matrice_chaine_afrique.txt");
 
+
     g.make_example(animal);
+    //g.test_remove_edge(2);
+    g.test_remove_vertex(6);
 
 
 
@@ -24,6 +27,7 @@ int main()
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
     {
+
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
 
