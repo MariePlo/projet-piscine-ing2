@@ -112,3 +112,60 @@
 	<iostream>
 	"graph.h"
 
+1522752814 source:c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\coords.cpp
+	"coords.h"
+
+1522752814 c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\coords.h
+	<cmath>
+
+1522752814 source:c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1522752814 c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1522752814 c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\grman_couleurs.h
+
+1522752814 c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1522752814 source:c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\grman\widget.cpp
+	"widget.h"
+
+1522852613 source:c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+
+1522852396 c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\graph.h
+	<fstream>
+	<vector>
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1522852570 source:c:\users\marie\documents\github\projet-piscine-ing2\graph_lib_exemple_graph\graph.cpp
+	"graph.h"
+

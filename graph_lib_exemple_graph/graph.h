@@ -339,6 +339,8 @@ class Graph
         void lecture_fichier_chaine(std::string nom_fichier, std::vector<Vertex*> &animal);
         void lecture_fichier_matrice(std::string nom_fichier);
         bool allocationMatriceAdjacent();
+        void test_remove_vertex(int vidx);
+        void test_remove_edge(int eidx);
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface

@@ -18,7 +18,7 @@ int main()
 
     g.make_example(animal);
 
-
+    g.test_remove_vertex(0);
 
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
@@ -29,6 +29,7 @@ int main()
 
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
+
     }
 
     grman::fermer_allegro();
