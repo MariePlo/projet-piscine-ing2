@@ -287,7 +287,7 @@ void Graph::lecture_fichier_chaine(std::string nom_fichier, std::vector<Vertex*>
     std::string nom_image;
     double population;
     std::string nom_animal;
-    int ordre;
+    int ordre, actif;
     int posx, posy;
     //std::vector<Sommet*> animal;
     //std::vector<BITMAP*> vecteur_image;
@@ -306,7 +306,7 @@ void Graph::lecture_fichier_chaine(std::string nom_fichier, std::vector<Vertex*>
         {
             animal.push_back(new Vertex);
             // lecture du fichier
-            fichier >> nom_animal >> sommet >> population >> posx >> posy;  //on lit jusqu'à l'espace et on stocke ce qui est lu dans la variable indiquée
+            fichier >> nom_animal >> sommet >> population >> posx >> posy >> actif;  //on lit jusqu'à l'espace et on stocke ce qui est lu dans la variable indiquée
             nom_image= nom_animal+ ".bmp";
 
             // attribution des photos a son animal
@@ -317,6 +317,7 @@ void Graph::lecture_fichier_chaine(std::string nom_fichier, std::vector<Vertex*>
             animal[i]->Setvalue(population);
             animal[i]->Setposx(posx);
             animal[i]->Setposy(posy);
+            animal[i]->Setactif(actif);
             //std::cout<<animal[i]->Getname()<<" "<<animal[i]->Getimage()<<std::endl;
 
         }
@@ -425,11 +426,41 @@ void Graph::test_remove_edge(int eidx)
 
 void Graph::test_remove_vertex(int vidx)
 {
-    Vertex &remedv=m_vertices.at(vidx);
-
+    Vertex remedv=m_vertices.at(vidx);
+    int id_vert1;
+    int id_vert2;
+    //std::cout<<"\n"<<id_vert1<<"   "<<id_vert2<<"\n\n" ;
     if(m_interface && remedv.m_interface)
     {
+
         m_interface->m_main_box.remove_child(remedv.m_interface->m_top_box);
+        for(int i=0 ; i<m_edges.size() ; i++)
+        {
+            id_vert1 = m_edges[i].m_from  ;
+            id_vert2 = m_edges[i].m_to ;
+
+                if(id_vert1==vidx || id_vert2==vidx)
+                {
+                    test_remove_edge(i);
+                }
+        }
+
     }
 
+
+}
+
+void Graph::sauvegarder(std::vector<Vertex*> &animal)
+{
+    std::ofstream fichier("chaine_afrique.txt");
+    if(fichier)
+    {
+        fichier<<m_NbSommet<<std::endl;
+        for(int i=0; i<m_NbSommet;i++)
+        {
+            fichier<<animal[i]->Getname()<<std::endl<<animal[i]->Getnumber()<<std::endl<<m_vertices[i].Getvalue()<<std::endl;
+            fichier<<m_vertices[i].m_interface->m_top_box.get_posx()<<std::endl<<m_vertices[i].m_interface->m_top_box.get_posy()<<std::endl;
+            fichier<<animal[i]->Getactif()<<std::endl;
+        }
+    }
 }

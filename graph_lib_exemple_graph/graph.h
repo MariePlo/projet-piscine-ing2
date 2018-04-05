@@ -158,6 +158,7 @@ class Vertex
         int m_posx;
         int m_posy;
         int m_number;
+        int m_actif;
 
 
     public:
@@ -179,6 +180,9 @@ class Vertex
 
         double Getvalue(){return m_value;}
         void Setvalue(double value){m_value=value;}
+
+        int Getactif(){return m_actif;}
+        void Setactif(int actif){m_actif=actif;}
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
@@ -341,6 +345,7 @@ class Graph
         bool allocationMatriceAdjacent();
         void test_remove_vertex(int vidx);
         void test_remove_edge(int eidx);
+        void sauvegarder(std::vector<Vertex*> &animal);
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface

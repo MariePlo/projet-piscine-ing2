@@ -18,12 +18,18 @@ int main()
 
     g.make_example(animal);
 
-    g.test_remove_vertex(0);
-
     /// Vous gardez la main sur la "boucle de jeu"
     /// ( contrairement à des frameworks plus avancés )
     while ( !key[KEY_ESC] )
     {
+        if(key[KEY_SPACE])
+        {
+            //g.test_remove_vertex(2);
+            g.sauvegarder(animal);
+            rest(20);
+        }
+
+
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
 
@@ -36,6 +42,6 @@ int main()
 
     return 0;
 }
-END_OF_MAIN();
+END_OF_MAIN()
 
 
