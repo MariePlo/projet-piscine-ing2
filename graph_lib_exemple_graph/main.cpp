@@ -24,8 +24,8 @@ int main()
     {
         if(key[KEY_SPACE])
         {
-            //g.test_remove_vertex(2);
-            g.sauvegarder(animal);
+            g.test_remove_vertex(2);
+            //g.sauvegarder(animal);
             rest(20);
         }
 
