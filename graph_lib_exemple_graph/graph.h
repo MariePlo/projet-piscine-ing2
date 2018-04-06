@@ -158,6 +158,7 @@ class Vertex
         int m_posx;
         int m_posy;
         int m_number;
+        int m_actif;
 
 
     public:
@@ -179,6 +180,9 @@ class Vertex
 
         double Getvalue(){return m_value;}
         void Setvalue(double value){m_value=value;}
+
+        int Getactif() {return m_actif;}
+        void Setactif(int actif){m_actif=actif;}
 
         /// Les constructeurs sont à compléter selon vos besoin...
         /// Ici on ne donne qu'un seul constructeur qui peut utiliser une interface
@@ -339,9 +343,12 @@ class Graph
         void lecture_fichier_chaine(std::string nom_fichier, std::vector<Vertex*> &animal);
         void lecture_fichier_matrice(std::string nom_fichier);
         bool allocationMatriceAdjacent();
+        void test_remove_vertex(int vidx,std::vector<Vertex*> &animal);
         void test_remove_edge(int eidx);
-        void test_remove_vertex(int vidx);
-
+        void sauvegarder(std::vector<Vertex*> &animal);
+        void une_journee(std::vector<Vertex*> &animal);
+        void test_mort(std::vector<Vertex*> &animal);
+        void ajouter_sommet(std::vector<Vertex*> &animal);
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
@@ -352,6 +359,9 @@ class Graph
 
         int** Getmatrice(){return m_matrice;}
         void Setmatrice(int** matrice){m_matrice=matrice;}
+
+        std::map<int, Edge>Getmedges(){return m_edges;}
+
 };
 
 

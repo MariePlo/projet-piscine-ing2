@@ -2,7 +2,7 @@
 #include <iostream>
 #include "graph.h"
 
-  int main()
+int main()
 {
     /// A appeler en 1er avant d'instancier des objets graphiques etc...
     grman::init();
@@ -16,11 +16,11 @@
     g.lecture_fichier_chaine("chaine_afrique.txt", animal);
     g.lecture_fichier_matrice("matrice_chaine_afrique.txt");
 
-
     g.make_example(animal);
-    //g.test_remove_edge(2);
-    g.test_remove_vertex(6);
-
+    //g.sauvegarder(animal);
+   // g.test_remove_edge(2);
+    /*g.test_remove_edge(3);
+    g.test_remove_edge(7);*/
 
 
     /// Vous gardez la main sur la "boucle de jeu"
@@ -31,8 +31,47 @@
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
 
+        if(key[KEY_SPACE])
+        {
+
+            /*g.test_remove_edge(2);
+            g.test_remove_edge(3);
+            g.test_remove_edge(7);*/
+            g.test_remove_vertex(3,animal);
+            rest(40);
+        }
+
+        if(key[KEY_D])
+        {
+             g.une_journee(animal);
+             rest(30);
+        }
+
+
+        if(key[KEY_P])
+        {
+             g.ajouter_sommet(animal);
+             rest(30);
+        }
+
+
+         if(key[KEY_B])
+        {
+             g.sauvegarder(animal);
+             rest(10);
+        }
+
+        if(key[KEY_N])
+        {
+            std::cout<<g.Getmedges().size()<<"   ";
+        }
+         g.test_mort(animal);
+
+
+
         /// Mise à jour générale (clavier/souris/buffer etc...)
         grman::mettre_a_jour();
+
     }
 
     grman::fermer_allegro();

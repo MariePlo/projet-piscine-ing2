@@ -22,8 +22,8 @@ namespace grman
 //#define MODE_GRAPHIQUE GFX_AUTODETECT_FULLSCREEN
 
 // Nombre de pixels horizontalement et verticalement
-#define LARGEURECRAN 800
-#define HAUTEURECRAN 600
+#define LARGEURECRAN 1024
+#define HAUTEURECRAN 768
 
 // Couleur initiale :
 #define PAGE_COULEUR_INIT BLANC
