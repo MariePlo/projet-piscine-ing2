@@ -50,6 +50,10 @@ int main()
              g.ajouter_sommet(animal);
              rest(30);
         }
+       if (key[KEY_H])
+       {
+           std::cout<<"voila "<<g.Getmatrice()[4][0];
+       }
 
 
          if(key[KEY_B])
@@ -61,6 +65,21 @@ int main()
         {
             std::cout<<g.Getmedges().size()<<"   ";
         }
+
+        if(key[KEY_G])
+        {
+            /*if(g.uneComposanteFortementConnexe(2))
+                std::cout<<"\n je le suis";*/
+
+
+                if(g.uneComposanteFortementConnexe(2))
+                {
+                    std::cout<<"\n je le suis ";
+                }
+            else{std::cout<<"\n non";}
+
+        }
+
         g.test_mort(animal);
 
 

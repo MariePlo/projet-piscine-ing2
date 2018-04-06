@@ -352,6 +352,7 @@ class Graph
         void une_journee(std::vector<Vertex*> &animal);
         void test_mort(std::vector<Vertex*> &animal);
         void ajouter_sommet(std::vector<Vertex*> &animal);
+        bool *uneComposanteFortementConnexe (int s);
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
