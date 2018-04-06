@@ -216,6 +216,8 @@ void Graph::make_example(std::vector<Vertex*> animal)
         }
     }
 
+    SetCompteur(Getmedges().size());
+
 
     //std::cout<<"/n/n/n"<<compteur<<std::endl;
 
@@ -429,7 +431,7 @@ void Graph::test_remove_edge(int eidx)
 /// Le Edge ne nécessite pas non plus de delete car on n'a pas fait de new (sémantique par valeur)
 /// Il suffit donc de supprimer l'entrée de la map pour supprimer à la fois l'Edge et le EdgeInterface
 /// mais malheureusement ceci n'enlevait pas automatiquement l'interface top_edge en tant que child de main_box !
-   // m_edges.erase( eidx );
+   m_edges.erase( eidx );
 
 /// Tester la cohérence : nombre d'arc entrants et sortants des sommets 1 et 2
     std::cout << m_vertices[remed.m_from].m_in.size() << " " << m_vertices[remed.m_from].m_out.size() << std::endl;
@@ -438,52 +440,46 @@ void Graph::test_remove_edge(int eidx)
 
 }
 
-/*void Graph::test_remove_vertex(int vidx)
-{
-    Vertex &remedv=m_vertices.at(vidx);
-
-    if(m_interface && remedv.m_interface)
-    {
-        m_interface->m_main_box.remove_child(remedv.m_interface->m_top_box);
-    }
-
-  /* for( int i=1 ; i< (m_vertices[vidx].m_in.size()+m_vertices[vidx].m_out.size()); i++)
-    {
-        std::cout<< "\n" <<i <<"\n";
-        int tempo;
-        temmo= ..  . . . .
-        test_remove_edge(tempo);
-    }
-
-     //m_vertices.erase( vidx );
-
-}*/
 void Graph::test_remove_vertex(int vidx,std::vector<Vertex*> &animal)
 {
     Vertex remedv=m_vertices.at(vidx);
     int id_vert1;
     int id_vert2;
+
+    int idx_max=-1;
+
+    for (auto &elt : m_edges)
+         {
+             if(elt.first>idx_max)
+                idx_max=elt.first;
+
+         }
+          std::cout<<" c    "<<idx_max;
+
+
     //std::cout<<"\n"<<id_vert1<<"   "<<id_vert2<<"\n\n" ;
     if(m_interface && remedv.m_interface)
     {
 
-
-        for(int i=0 ; i<m_edges.size() ; i++)
+        for(int i=0 ; i<=idx_max ; i++)
         {
+
             id_vert1 = m_edges[i].m_from  ;
             id_vert2 = m_edges[i].m_to ;
 
                 if(id_vert1==vidx || id_vert2==vidx)
                 {
                     test_remove_edge(i);
+
                 }
+
 
         }
         m_interface->m_main_box.remove_child(remedv.m_interface->m_top_box);
      }
 
      animal[vidx]->Setactif(0);
-     remedv.Setactif(0);
+     //remedv.Setactif(0);
      m_vertices.erase(vidx);
 
 }
@@ -521,8 +517,12 @@ void Graph::test_mort(std::vector<Vertex*> &animal)
 {
     for(int i=0; i<m_NbSommet;i++)
     {
+
         if(m_vertices[i].Getvalue()==0)
+        {
             test_remove_vertex(i,animal);
+        }
+
     }
 }
 void Graph::une_journee(std::vector<Vertex*> &animal)
@@ -556,6 +556,14 @@ void Graph::une_journee(std::vector<Vertex*> &animal)
 
 void Graph::ajouter_sommet(std::vector<Vertex*> &animal)
 {
+    int idx_max=-1;
+    for (auto &elt : m_edges)
+         {
+             if(elt.first>idx_max)
+                idx_max=elt.first;
+
+         }
+
     for(int i=0; i<m_NbSommet;i++)
         {
             if(animal[i]->Getactif()==0)
@@ -567,18 +575,18 @@ void Graph::ajouter_sommet(std::vector<Vertex*> &animal)
                 add_interfaced_vertex(animal[i]->Getnumber(),animal[i]->Getvalue(), animal[i]->Getposx(), animal[i]->Getposy(), animal[i]->Getimage());
 
 
-
-    int compteur=m_edges.size();
-
+         std::cout<<" c    "<<idx_max;
+  int compteur=idx_max+1;
 
     for (int i=0; i<GetNbSommet(); i++)
     {
         for (int y=0; y<GetNbSommet(); y++)
         {
-            if(m_matrice[i][y]==1 && (animal[i]->Getactif()==1 || animal[y]->Getactif()==1))
+            if(m_matrice[i][y]==1 && animal[i]->Getactif()==1 && animal[y]->Getactif()==1)
             {
-                compteur++;
+
                 add_interfaced_edge(compteur, i, y, 50);
+                compteur++;
             }
         }
     }

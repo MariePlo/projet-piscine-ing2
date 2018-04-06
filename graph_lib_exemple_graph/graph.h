@@ -2,6 +2,7 @@
 #define GRAPH_H_INCLUDED
 #include <fstream>
 #include <vector>
+#define Nbaretes 10
 
 /**************************************************************
     Ici sont proposées 3 classes fondamentales
@@ -324,6 +325,8 @@ class Graph
         std::shared_ptr<GraphInterface> m_interface = nullptr;
         int ** m_matrice;
 
+        int m_compteur;
+
 
     public:
 
@@ -356,6 +359,9 @@ class Graph
 
         int GetNbSommet() {return m_NbSommet;}
         void SetNbSommet(int nbsommet) {m_NbSommet=nbsommet;}
+
+         int GetCompteur() {return m_compteur;}
+        void SetCompteur(int compteur) {m_compteur=compteur;}
 
         int** Getmatrice(){return m_matrice;}
         void Setmatrice(int** matrice){m_matrice=matrice;}

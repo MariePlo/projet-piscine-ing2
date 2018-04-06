@@ -10,17 +10,16 @@ int main()
     /// Le nom du répertoire où se trouvent les images à charger
     grman::set_pictures_path("IMAGES");
 
+
+
     /// Un exemple de graphe
+
     Graph g;
     std::vector<Vertex*> animal;
     g.lecture_fichier_chaine("chaine_afrique.txt", animal);
     g.lecture_fichier_matrice("matrice_chaine_afrique.txt");
 
     g.make_example(animal);
-    //g.sauvegarder(animal);
-   // g.test_remove_edge(2);
-    /*g.test_remove_edge(3);
-    g.test_remove_edge(7);*/
 
 
     /// Vous gardez la main sur la "boucle de jeu"
@@ -31,14 +30,12 @@ int main()
         /// Il faut appeler les méthodes d'update des objets qui comportent des widgets
         g.update();
 
+
         if(key[KEY_SPACE])
         {
-
-            /*g.test_remove_edge(2);
-            g.test_remove_edge(3);
-            g.test_remove_edge(7);*/
-            g.test_remove_vertex(3,animal);
-            rest(40);
+            std::cout<<" yo ";
+            g.test_remove_vertex(6,animal);
+            rest(200);
         }
 
         if(key[KEY_D])
@@ -60,12 +57,11 @@ int main()
              g.sauvegarder(animal);
              rest(10);
         }
-
         if(key[KEY_N])
         {
             std::cout<<g.Getmedges().size()<<"   ";
         }
-         g.test_mort(animal);
+        g.test_mort(animal);
 
 
 
