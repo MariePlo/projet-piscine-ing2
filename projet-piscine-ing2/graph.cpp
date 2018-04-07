@@ -442,7 +442,7 @@ void Graph::make_example(std::vector<Vertex*> animal, std::string nom_chaine)
 
     SetCompteur(Getmedges().size());
 
-    m_pop=1;
+   // m_pop=1;
 
 
     //std::cout<<"/n/n/n"<<compteur<<std::endl;
@@ -454,22 +454,12 @@ void Graph::update(std::vector<Vertex*> &animal, std::string nom_fichier)
 {
     /// bouton de l'interface generale
 
-    std::cout<<m_pop<<std::endl;
+    //7std::cout<<m_pop<<std::endl;
 
-    if(m_interface->m_bouton_pause.clicked())
-    {
-        m_pop=0;
-
-    }
-
-    /*if(m_interface->m_bouton_pause.clicked() && m_pop==0)
-    {
-        m_pop=1;
-    }*/
-
-    if(m_pop==1)
+    if(m_interface->m_bouton_pause.get_value()==0)
     {
         evolution_pop();
+
     }
 
     if(m_interface->m_bouton_retour.clicked())

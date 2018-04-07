@@ -360,3 +360,70 @@
 	"graph.h"
 	"allegro.h"
 
+1523105628 source:c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\coords.cpp
+	"coords.h"
+
+1523105628 c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\coords.h
+	<cmath>
+
+1523105628 source:c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\grman.cpp
+	<cmath>
+	<unordered_map>
+	<unordered_set>
+	<utility>
+	<string>
+	<iostream>
+	<regex>
+	"grman.h"
+	<allegro.h>
+	<png.h>
+	<loadpng.h>
+	<jpgalleg.h>
+
+1523105628 c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\grman.h
+	<allegro.h>
+	<string>
+	"grman_couleurs.h"
+	"coords.h"
+	"widget.h"
+
+1523105628 c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\grman_couleurs.h
+
+1523105628 c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\widget.h
+	"grman.h"
+	<iostream>
+	<string>
+	<vector>
+	<algorithm>
+	<allegro.h>
+
+1523105628 source:c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\grman\widget.cpp
+	"widget.h"
+
+1523105627 source:c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\main.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"menu.h"
+
+1523124551 c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\graph.h
+	<fstream>
+	<vector>
+	<vector>
+	<map>
+	<string>
+	<memory>
+	"grman/grman.h"
+
+1523105628 c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\menu.h
+
+1523117412 source:c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\menu.cpp
+	"grman/grman.h"
+	<iostream>
+	"graph.h"
+	"allegro.h"
+
+1523122943 source:c:\users\marie\documents\github\projet-piscine-ing2\projet-piscine-ing2\graph.cpp
+	"graph.h"
+	"menu.h"
+

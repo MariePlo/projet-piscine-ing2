@@ -205,7 +205,7 @@ class Vertex
 
 class EdgeInterface
 {
-    // Les (methodes des) classes amies pourront accéder
+   // Les (methodes des) classes amies pourront accéder
     // directement aux attributs (y compris privés)
     friend class Edge;
     friend class Graph;
@@ -312,9 +312,9 @@ class GraphInterface
           grman::WidgetText m_bouton_txt_jour;
            grman::WidgetButton m_bouton_connexe;
           grman::WidgetText m_bouton_txt_connexe;
-          grman::WidgetButton m_bouton_pause;
-          grman::WidgetText m_bouton_txt_pause;
-
+         // grman::WidgetButton m_bouton_pause;
+        grman::WidgetText m_bouton_txt_pause;
+        grman::WidgetCheckBox m_bouton_pause;
 
           /// variables savane
 
