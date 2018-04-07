@@ -40,26 +40,26 @@ int main()
 
         if(key[KEY_D])
         {
-             g.une_journee(animal);
-             rest(30);
+            g.une_journee(animal);
+            rest(30);
         }
 
 
         if(key[KEY_P])
         {
-             g.ajouter_sommet(animal);
-             rest(30);
+            g.ajouter_sommet(animal);
+            rest(30);
         }
-       if (key[KEY_H])
-       {
-           std::cout<<"voila "<<g.Getmatrice()[4][0];
-       }
-
-
-         if(key[KEY_B])
+        if (key[KEY_H])
         {
-             g.sauvegarder(animal);
-             rest(10);
+            std::cout<<"voila "<<g.Getmatrice()[4][0];
+        }
+
+
+        if(key[KEY_B])
+        {
+            g.sauvegarder(animal);
+            rest(10);
         }
         if(key[KEY_N])
         {
@@ -70,15 +70,33 @@ int main()
         {
             /*if(g.uneComposanteFortementConnexe(2))
                 std::cout<<"\n je le suis";*/
+            for(int i=0; i<g.GetNbSommet();i++)
+            std::cout<<g.uneComposanteFortementConnexe(7)[i];
+           //g.uneComposanteFortementConnexe(7);
+            rest(100);
+
+            //std::cout<<" voici la matrice de connexite \n"<< g.toutesLesComposantesFortementConnexes()[0][2];
+            //std::cout << g.toutesLesComposantesFortementConnexes()[0][1];
 
 
-                if(g.uneComposanteFortementConnexe(2))
+
+
+                /*std::cout << "Voici le tableau de la matrice adjacente\n\n";
+
+                for(int i = 0 ; i < g.GetNbSommet(); i ++)
                 {
-                    std::cout<<"\n je le suis ";
+                    for(int j = 0; j < g.GetNbSommet(); j ++)
+                    {
+                        std::cout << g.toutesLesComposantesFortementConnexes()[i][j];
+                    }
+                    std::cout << "\n";
                 }
-            else{std::cout<<"\n non";}
 
-        }
+                std::cout << "\n";*/
+            }
+
+
+
 
         g.test_mort(animal);
 

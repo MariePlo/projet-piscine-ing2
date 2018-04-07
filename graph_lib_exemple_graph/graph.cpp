@@ -597,44 +597,46 @@ void Graph::ajouter_sommet(std::vector<Vertex*> &animal)
     }
 }
 
-bool* Graph:: uneComposanteFortementConnexe (int s)
+int* Graph:: uneComposanteFortementConnexe (int s)
 {
 //Variables locales
-    bool *c1, *c2 ; // composantes connexes directes partant de s et indirectes arrivant vers s
-    bool *c ; // composante fortement connexe = c1  c2 à retourner
+    int *c1, *c2 ; // composantes connexes directes partant de s et indirectes arrivant vers s
+    int *c ; // composante fortement connexe = c1  c2 à retourner
     bool *marques ; // tableau dynamique indiquant si les sommets sont marqués ou non
     int x, y ; // numéros de sommets intermédiaires des composantes connexes
     bool ajoute = true ; // booléen indiquant si une nouvelle composante connexe est ajoutée
 // Allouer les tableaux dynamiques c1, c2, c et marques de taille « ordre »
 
-    c1 = new bool[GetNbSommet()];
-    c2 = new bool[GetNbSommet()];
+    c1 = new int[GetNbSommet()];
+    c2 = new int[GetNbSommet()];
+    c= new int[GetNbSommet()];
     marques = new bool[GetNbSommet()];
 
 // Initialiser les valeurs de ces tableaux à 0
     for(int i=0; i<GetNbSommet(); i++)
     {
-        c1[i]=false;
-        c2[i]=false;
+        c1[i]=0;
+        c2[i]=0;
         marques[i]=false;
+        c[i]=0;
     }
 // Rendre le sommet s connexe
-    c1[s] = true ;
-    c2[s] = true ;
+    c1[s] = 1 ;
+    c2[s] = 1 ;
 // Recherche des composantes connexes partant de s à ajouter dans c1 :
     while (ajoute)
     {
         ajoute = false;
         for (x=0 ; x<GetNbSommet(); x++)
         {
-            if (!marques[x] && c1[x])
+            if (!marques[x] && c1[x]==1)
             {
                 marques[x] = true ;
                 for (y=0 ; y<GetNbSommet() ; y++)
                 {
                     if (m_matrice[x][y]==1 && !marques[y])
                     {
-                        c1[y] = true ;
+                        c1[y] = 1 ;
                         ajoute = true ; // nouvelle composante connexe ajoutée
                     }
                 }
@@ -642,34 +644,91 @@ bool* Graph:: uneComposanteFortementConnexe (int s)
         }
     }
 /// Recherche des composantes connexes arrivant à s à ajouter dans c2 :
-ajoute=true;
-while (ajoute)
+    ajoute=true;
+    for(int i=0; i<GetNbSommet(); i++)
+    {
+        marques[i]=false;
+    }
+    while (ajoute)
     {
         ajoute = false;
         for (x=0 ; x<GetNbSommet(); x++)
         {
-           if (!marques[x] && c2[x])
+            if (!marques[x] && c2[x]==1)
             {
                 marques[x] = true ;
-               for (y=0 ; y<GetNbSommet() ; y++)
-               {
-                   if (m_matrice[y][x]==1 && !marques[y])
-                   {
-                        c2[y] = true ;
+                for (y=0 ; y<GetNbSommet() ; y++)
+                {
+                    if (m_matrice[y][x]==1 && !marques[y])
+                    {
+                        c2[y] = 1 ;
                         ajoute = true ; // nouvelle composante connexe ajoutée
                     }
                 }
             }
         }
-   }
+    }
 // Composante fortement connexe c = intersection de c1 et c2
 
-        for (x=0 ; x<GetNbSommet() ; x++)
-            c[x] = c1[x] & c2[x] ;
+    for (x=0 ; x<GetNbSommet() ; x++)
+    {
+       // std::cout<<" "<<c1[x];
+
+        c[x] = c1[x] & c2[x] ;
+
+    }
+    std::cout<<"\n";
+
+    for (x=0 ; x<GetNbSommet() ; x++)
+    {
+        //std::cout<<" "<<c2[x];
+
+    }
 
 
 // Retourner la composante fortement connexe c
-        return c ;
+    return c ;
 
 
+}
+
+int ** Graph::toutesLesComposantesFortementConnexes ()
+{
+// Variables locales
+    int **tabc ; // tableau dynamique des composantes fortement connexes à retourner
+    bool *marques ; // tableau dynamique indiquant si les sommets sont marqués ou non
+    int x, y ; // numéros de sommets intermédiaires comme indices des tableaux
+// Allouer les tableaux dynamiques tabc et marques de taille « ordre »
+    tabc = new int*[GetNbSommet()];
+    marques = new bool[GetNbSommet()];
+
+// Initialiser les valeurs de ces tableaux à 0
+    for(int i=0; i<GetNbSommet(); i++)
+    {
+
+        marques[i]=false;
+    }
+    for(int j=0; j<GetNbSommet(); j++)
+    {
+        for(int v=0; v<GetNbSommet(); v++)
+        {
+            tabc[j][v]=0;
+        }
+
+    }
+// Pour tous les sommets x non marqués
+// Rechercher la composante fortement connexe de x
+// Marquer chaque sommet x et marquer les sommets y connectés à x et non marqués
+    for (x=0 ; x<GetNbSommet() ; x++)
+    {
+        if (!marques[x])
+        {
+            tabc[x] = uneComposanteFortementConnexe(x) ;
+            marques[x] = 1 ;
+            for (y=0 ; y<GetNbSommet() ; y++)
+                if (tabc[x][y] && !marques[y])
+                    marques[y] = 1 ;
+        }
+    }
+    return tabc ;
 }
