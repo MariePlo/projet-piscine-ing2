@@ -64,6 +64,14 @@ void afficher_menu()
                 g.update(animal,"chaine_afrique.txt");
                 g.test_mort(animal);
                 grman::mettre_a_jour();
+                if(key[KEY_N])
+                {
+                    g.reset();
+                    g.lecture_fichier_chaine("chaine_afrique.txt", animal);
+                    g.lecture_fichier_matrice("matrice_chaine_afrique.txt");
+                    g.make_example(animal, "afrique");
+                }
+
             }
 
             break;

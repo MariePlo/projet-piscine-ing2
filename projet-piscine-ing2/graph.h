@@ -455,6 +455,7 @@ class Graph
         int *uneComposanteFortementConnexe (int s);
         int ** toutesLesComposantesFortementConnexes();
         void evolution_pop();
+        void reset();
 
 
         /// La méthode update à appeler dans la boucle de jeu pour les graphes avec interface
